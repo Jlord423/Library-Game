@@ -10,4 +10,10 @@ public static class Helpers
 
     // changes input by 45 degrees to fix isometric movement 
     public static Vector3 ToIso(this Vector3 input) => _isoMatrix.MultiplyPoint3x4(input);
+
+    // Generate random normalized direction (codemonkeys tutorial)
+    public static Vector3 GetRandomDir()
+    {
+        return new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+    }
 }
