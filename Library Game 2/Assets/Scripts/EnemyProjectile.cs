@@ -7,13 +7,13 @@ public class EnemyProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,8 +35,20 @@ public class EnemyProjectile : MonoBehaviour
             //Debug.Log("Hit!");
             // this is the player
             thePlayer.TakeDamage(10);
-        }
 
+
+        }
+        DestroyProjectile();
     }
 
+
+
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
+    }
 }
+
+
+
+    

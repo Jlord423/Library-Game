@@ -29,6 +29,12 @@ public class PlayerProjectile : MonoBehaviour
             theEnemyAI.TakeDamage(10);
             Debug.Log("Hit!");
         }
+        DestroyProjectile();
 
+    }
+        
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
     }
 }
