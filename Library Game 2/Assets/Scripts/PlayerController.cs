@@ -23,10 +23,14 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectile;
 
+    private bool rotateAfterFire;
+
+    // private bool 
+
     void Update()
     {
         GatherInput();
-
+        
 
     }
 
@@ -48,13 +52,26 @@ public class PlayerController : MonoBehaviour
     {
         if (_input != Vector3.zero && !Input.GetKey(KeyCode.Mouse0))
         {
-
+            rotateAfterFire = false;
 
             var relative = transform.position + _input.ToIso() - transform.position;
             var rot = Quaternion.LookRotation(relative, Vector3.up);
 
-            // Ensures turning is a smooth process 
+            //if (!rotateAfterFire)
+            //    {
+            //        // Ensures turning is a smooth process 
+            //        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime)
+            //    }
+            //else
+            //    {
+            //        transform.LookAt(GameObject)
+            //    }
+            //    // Ensures turning is a smooth process 
+            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime);
+
+            // Ensures turning is a smooth process
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime);
+
         }
 
     }
@@ -68,7 +85,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    
     void Shoot()
     {
         if (Input.GetKey(KeyCode.Mouse0) && !alreadyAttacked)
@@ -80,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks * Time.deltaTime);
+            rotateAfterFire = true;
         }
 
     }
