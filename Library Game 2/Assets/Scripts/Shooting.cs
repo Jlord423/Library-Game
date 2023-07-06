@@ -22,7 +22,6 @@ public class Shooting : MonoBehaviour
     bool shooting, readyToShoot, reloading;
 
     //Reference
-    public Camera mainCamera;
     public Transform attackPoint;
 
     //Graphics
@@ -74,21 +73,6 @@ public class Shooting : MonoBehaviour
         readyToShoot = false;
 
         //Find the hit position using a raycast
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition)
-       
-
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask))
-        {
-            transform.position = raycastHit.point;
-        }
-
-      
-
-        
-
-            //calculate the direction
-            Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
-
         //Calculate spread
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
