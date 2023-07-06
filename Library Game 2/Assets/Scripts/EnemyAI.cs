@@ -14,6 +14,10 @@ public class EnemyAI : MonoBehaviour
 
     public float health;
 
+    public GameObject firePoint;
+
+
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -85,9 +89,9 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, firePoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            
             ///End of attack code
 
             alreadyAttacked = true;
