@@ -1,6 +1,10 @@
 
 using UnityEngine;
+<<<<<<< Updated upstream
 using UnityEngine.AI;
+=======
+using CodeMonkey.Utils;
+>>>>>>> Stashed changes
 
 public class EnemyAI : MonoBehaviour
 {
@@ -34,6 +38,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -114,6 +119,9 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+=======
+        return startingPosition + UtilsClass.GetRandomDir() * Random.Range(10f, 70f);
+>>>>>>> Stashed changes
     }
 }
 
